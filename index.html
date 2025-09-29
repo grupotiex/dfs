@@ -13,11 +13,16 @@
         }
         .header-bg {
             background-color: transparent;
-            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            /* Adicionado border-color à transição */
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            /* Borda transparente no estado inicial */
+            border-bottom: 4px solid transparent; 
         }
         .header-scrolled {
             background-color: #001f3f;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            /* Borda AMARELA visível ao rolar */
+            border-bottom-color: #f59e0b; 
         }
         /* Estilos da Seção Hero (agora estática) */
         .hero-section {
@@ -52,12 +57,31 @@
         }
         @media (min-width: 768px) {
             .hero-content {
+                /* Retornando ao alinhamento mais à esquerda para cobrir a área da imagem */
                 text-align: left;
                 padding-top: 5rem;
+                max-width: 65%; /* Aumenta a largura do contêiner de texto para cobrir mais a esquerda/centro */
+                margin-left: 5%; /* Alinha mais à esquerda */
+                margin-right: auto;
             }
             .hero-content h1, .hero-content p {
                 margin-left: 0;
                 margin-right: auto;
+            }
+            .hero-content p {
+                 /* Garantindo que o parágrafo use a largura total do contêiner hero-content */
+                 max-width: 100%; 
+                 text-align: justify; /* Aplicando justificação */
+            }
+        }
+        @media (min-width: 1024px) {
+             .hero-content {
+                max-width: 50%; /* Largura ideal para telas grandes, cobrindo a área da imagem */
+                margin-right: auto; 
+                margin-left: 5%;
+            }
+             .hero-content p {
+                 max-width: 100%;
             }
         }
         .section-title {
@@ -85,7 +109,7 @@
             height: 100%; 
             text-align: center;
             border-bottom: 4px solid #003366;
-            box-shadow: 0 8px 16px -4px rgba(0,0,0,0.1), 0 4px 8px -2px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 16px -4pf rgba(0,0,0,0.1), 0 4px 8px -2px rgba(0,0,0,0.05);
         }
         .card:hover {
             transform: translateY(-8px);
@@ -167,7 +191,7 @@
             background-color: white;
             border-radius: 0.75rem;
             padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1pf rgba(0,0,0,0.06);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: flex-start;
@@ -302,7 +326,7 @@
 <body class="bg-gray-50">
 
     <!-- Header -->
-    <header id="main-header" class="header-bg fixed w-full z-20 top-0 left-0 border-b-4 border-amber-400">
+    <header id="main-header" class="header-bg fixed w-full z-20 top-0 left-0">
         <nav class="container mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
@@ -346,11 +370,17 @@
 
     <!-- Hero Section -->
     <section id="hero-section" class="hero-section" style="background-image: url('https://res.cloudinary.com/dxa5ntnjn/image/upload/v1752268891/Apresenta%C3%A7%C3%A3o_Proposta_Comercial_Abstrato_Azul_ebhflt.jpg');">
-        <div class="hero-content max-w-xl md:text-left md:pl-12 lg:pl-24 pt-20">
+        <div class="hero-content max-w-xl md:max-w-[50%] md:text-left md:ml-[5%] pt-20">
             <h1 class="text-5x1 md:text-5xl font-bold mb-4" style="color: #f59e0b;">
-               <br> Demonstrações Financeiras sem Risco, Multas ou Retrabalho
+               <br><br> Demonstrações Financeiras mais técnicas e precisas e ainda com economia para sua Empresa
             </h1>
-            <p class="text-lg md:text-xl mb-8 text-white">
+        </div>
+    </section>
+    
+    <!-- Nova Seção de Destaque -->
+    <section id="destaque" class="py-10 bg-white">
+        <div class="container mx-auto px-6">
+            <p class="text-lg md:text-xl max-w-4xl mx-auto text-justify text-gray-700">
                 Com a TIEX, você garante precisão, compliance e segurança nas suas obrigações contábeis. Somos especialistas em projetos financeiros de alta complexidade para empresas médias e grandes.
             </p>
         </div>
@@ -361,10 +391,13 @@
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">Por que terceirizar as Demonstrações Financeiras?</h2>
             <p class="section-subtitle text-justify max-w-3xl mx-auto">
-                As Demonstrações Financeiras (DFs) são muito mais do que uma obrigação legal: elas protegem sua empresa, sustentam a governança e abrem portas para novos negócios e crédito. Mas elaborá-las internamente consome tempo, aumenta custos fixos e expõe a riscos técnicos e regulatórios. Com a TIEX, você conta com especialistas, processos otimizados e tecnologia de ponta.
+                As Demonstrações Financeiras (DFs) são muito mais do que uma obrigação legal e/ou cumprimento de compliance: elas protegem sua empresa, sustentam a governança e abrem portas para novos negócios e crédito. Mas elaborá-las internamente consome tempo, aumenta custos fixos e expõe a riscos técnicos e regulatórios. Com a TIEX, você conta com especialistas, processos otimizados e tecnologia de ponta.
             </p>
             <div class="text-center mt-8">
                 <a href="https://tiex.com.br/fale-conosco/" target="_blank" rel="noopener noreferrer" class="cta-button-yellow text-lg px-8 py-3">Quero uma análise gratuita</a>
+                
+                <!-- CHAMADA DE TEXTO ADICIONAL (Removida daqui, pois a intenção é mover para a seção #contato) -->
+                
             </div>
         </div>
     </section>
@@ -406,7 +439,7 @@
                         <tr>
                             <td class="px-4 py-3 border-b border-gray-300 font-semibold text-gray-800">Qualidade & Conformidade</td>
                             <td class="px-4 py-3 border-b border-gray-300">Risco de erros e inconsistências</td>
-                            <td class="px-4 py-3 border-b border-gray-300">Demonstrações mais precisas, consistentes e em conformidade</td>
+                            <td class="px-4 py-3 border-b border-gray-300">Demonstrações mais precisas, consistentes e em conformidade, devido ao um processo robusto de revisão interna com gerentes e sócios antes da entrega dos trabalhos.</td>
                         </tr>
                         <tr class="bg-gray-50">
                             <td class="px-4 py-3 border-b border-gray-300 font-semibold text-gray-800">Credibilidade Externa</td>
@@ -458,37 +491,27 @@
                     </div>
                     <div class="card-content">
                         <h3 class="text-xl font-semibold mb-3 text-tiex-blue-dark">Preparação e revisão técnica para auditoria</h3>
-                        <p class="text-gray-800 text-justify">Preparamos e revisamos suas demonstrações para auditoria externa, garantindo a conformidade e a transparência necessárias.</p>
+                        <p class="text-gray-800 text-justify">Preparamos e revisamos suas demonstrações para auditorias externa e interna, garantindo a conformidade e a transparência necessárias.</p>
                     </div>
                 </div>
-                <!-- Item 3 -->
-                <div class="card fade-in-section stagger-3">
-                    <div class="icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="text-xl font-semibold mb-3 text-tiex-blue-dark">Relatórios gerenciais e insights estratégicos</h3>
-                        <p class="text-gray-800 text-justify">Oferecemos relatórios gerenciais e análises estratégicas para apoiar a tomada de decisões, transformando dados em crescimento real.</p>
-                    </div>
-                </div>
-                <!-- Item 4 -->
+                <!-- Item 3 (Novo) -->
                 <div class="card fade-in-section stagger-4">
                     <div class="icon-container">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="card-content">
-                        <h3 class="text-xl font-semibold mb-3 text-tiex-blue-dark">Equipe multidisciplinar com mais de 10 anos de experiência</h3>
-                        <p class="text-gray-800 text-justify">Conte com uma equipe de especialistas com vasta experiência em gestão financeira e contábil, prontos para oferecer o melhor suporte.</p>
+                        <h3 class="text-xl font-semibold mb-3 text-tiex-blue-dark">Equipe multidisciplinar com mais de 20 anos de experiência</h3>
+                        <p class="text-gray-800 text-justify">Conte com uma equipe de especialistas com mais de 20 anos de experiência, incluindo profissionais com vivência em Big4, prontos para oferecer o melhor suporte.</p>
                     </div>
                 </div>
-                <!-- Item 5 -->
+                <!-- Item 4 (Novo) -->
                 <div class="card fade-in-section stagger-5">
                     <div class="icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
                     </div>
                     <div class="card-content">
-                        <h3 class="text-xl font-semibold mb-3 text-tiex-blue-dark">Tecnologia e automação para mais agilidade e segurança</h3>
-                        <p class="text-gray-800 text-justify">Utilizamos as melhores tecnologias para otimizar processos, garantir a segurança dos seus dados e entregar resultados de forma mais rápida e eficiente.</p>
+                        <h3 class="text-xl font-semibold mb-3 text-tiex-blue-dark">Segurança e Confidencialidade da Informação</h3>
+                        <p class="text-gray-800 text-justify">Garantimos a máxima segurança e confidencialidade das informações do cliente através de processos rigorosos e controle de acesso, essenciais na elaboração das DFs.</p>
                     </div>
                 </div>
             </div>
@@ -505,7 +528,7 @@
             <div class="tiex-advantages-list mt-12 text-white">
                 <ul class="text-white text-lg space-y-4">
                     <li class="fade-in-section stagger-1" style="color: #f59e0b;">
-                        <span>+10 anos de experiência com empresas médias e grandes</span>
+                        <span>+20 anos de experiência com empresas médias e grandes, incluindo vivência em Big4.</span>
                     </li>
                     <li class="fade-in-section stagger-2" style="color: #f59e0b;">
                         <span>Expertise em normas internacionais e nacionais (BR GAAP, IFRS)</span>
@@ -530,6 +553,12 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-6 text-tiex-blue-dark">Simplifique sua gestão financeira com a TIEX</h2>
             <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-justify text-gray-600">Não corra riscos desnecessários. Com a TIEX, você garante conformidade, otimiza tempo e transforma dados contábeis em decisões estratégicas.</p>
             <a href="https://tiex.com.br/fale-conosco/" target="_blank" rel="noopener noreferrer" class="cta-button-yellow text-lg px-8 py-3 mt-4">Fale com a TIEX agora</a>
+            
+            <!-- NOVO TEXTO DE CHAMADA ADICIONAL AQUI -->
+            <p class="text-xl mt-4 text-gray-600 max-w-3xl mx-auto text-justify">
+               <br> Descubra por que a terceirização da controladoria, incluindo as Demonstrações Financeiras, é a nova estratégia que empresas de todos os portes estão usando para crescer. Saiba como focar no seu negócio, enquanto especialistas cuidam da burocracia.
+            </p>
+            <!-- FIM NOVO TEXTO -->
         </div>
     </section>
 
@@ -545,7 +574,7 @@
                         <li><a href="https://tiex.com.br/institucional/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300">Quem Somos</a></li>
                         <li><a href="https://tiex.com.br/servicos/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300">Serviços</a></li>
                         <li><a href="https://tiex.com.br/responsabilidade-social/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300">Responsabilidade Social</a></li>
-                        <li><a href="https://tiex.com.br/trabalhe-conosco/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300">Faça parte do nosso time</a></li>
+                        <li><a href="https://tiex.com.br/trabalhe-conosco/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300">Faça parte do nosso Time</a></li>
                         <li><a href="https://tiex.com.br/faq/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300">Faq</a></li>
                         <li><a href="https://tiex.com.br/politica-de-privacidade/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300">Política de Privacidade</a></li>
                     </ul>
