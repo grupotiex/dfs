@@ -57,11 +57,11 @@
         }
         @media (min-width: 768px) {
             .hero-content {
-                /* Retornando ao alinhamento mais à esquerda para cobrir a área da imagem */
+                /* Reduzindo o padding-top de pt-20 para pt-10 para subir o texto */
                 text-align: left;
-                padding-top: 5rem;
-                max-width: 65%; /* Aumenta a largura do contêiner de texto para cobrir mais a esquerda/centro */
-                margin-left: 5%; /* Alinha mais à esquerda */
+                padding-top: 2.5rem; /* Ajuste para subir o texto */
+                max-width: 65%;
+                margin-left: 5%;
                 margin-right: auto;
             }
             .hero-content h1, .hero-content p {
@@ -69,14 +69,13 @@
                 margin-right: auto;
             }
             .hero-content p {
-                 /* Garantindo que o parágrafo use a largura total do contêiner hero-content */
                  max-width: 100%; 
-                 text-align: justify; /* Aplicando justificação */
+                 text-align: justify;
             }
         }
         @media (min-width: 1024px) {
              .hero-content {
-                max-width: 50%; /* Largura ideal para telas grandes, cobrindo a área da imagem */
+                max-width: 50%;
                 margin-right: auto; 
                 margin-left: 5%;
             }
@@ -370,7 +369,7 @@
 
     <!-- Hero Section -->
     <section id="hero-section" class="hero-section" style="background-image: url('https://res.cloudinary.com/dxa5ntnjn/image/upload/v1752268891/Apresenta%C3%A7%C3%A3o_Proposta_Comercial_Abstrato_Azul_ebhflt.jpg');">
-        <div class="hero-content max-w-xl md:max-w-[50%] md:text-left md:ml-[5%] pt-20">
+        <div class="hero-content max-w-xl md:max-w-[50%] md:text-left md:ml-[5%] pt-10"> <!-- pt-10 ajustado -->
             <h1 class="text-5x1 md:text-5xl font-bold mb-4" style="color: #f59e0b;">
                <br><br> Demonstrações Financeiras mais técnicas e precisas e ainda com economia para sua Empresa
             </h1>
